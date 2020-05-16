@@ -10,7 +10,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && ng serve -o",
-    "cypress:ci": "cypress run --headless"
+    "cypress:run": "cypress run",
+    "cypress:ci": "ng build --prod && run-p --race start:ci cypress:run",
+    "start:ci": "http-server ./dist/cypressTest -a localhost -p 4200 -c-1"
   },
   "engines": {
     "node": "6.11.1",
