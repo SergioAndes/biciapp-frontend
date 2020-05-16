@@ -1,0 +1,85 @@
+  <div class="wrapper fadeInDown" style="background-color: #56baed;">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <a *ngIf="formtype == 1" href="/CampusBici/login"><h2 class="inactive underlineHover"> Iniciar Sesion </h2></a>
+    <a *ngIf="formtype == 2" href="/EcoEmpresa/login"><h2 class="inactive underlineHover"> Iniciar Sesion </h2></a>
+    <a *ngIf="formtype == 3" href="/BiciUsuario/login"><h2 class="inactive underlineHover"> Iniciar Sesion </h2></a>
+
+    <a  routerLink="/register"><h2 class="active"> Registrarse </h2></a>
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="https://img.pngio.com/bike-logo-design-png-image-free-download-searchpngcom-bicycle-design-png-4445_3327.png" id="icon" alt="User Icon"/>
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="registerForm">
+
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="Nombres" formControlName="fullName">
+      <small *ngIf="registerForm.get('fullName').errors?.required && registerForm.get('fullName').touched" class="text-danger"><br>Nombres requeridos</small>
+
+      <div *ngIf="formtype != 2 ">
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder="Apellidos" formControlName="fullName2">
+        <small *ngIf="registerForm.get('fullName2').errors?.required && registerForm.get('fullName2').touched" class="text-danger"><br>Apellidos requeridos</small>
+      </div>
+
+
+      <div *ngIf="formtype != 2 ">
+        <input  type="email"  class="fadeIn second" name="login" placeholder="Correo" formControlName="email">
+        <small *ngIf="primEmail.errors?.required &&  registerForm.get('email').touched" class="text-danger"><br>Correo es requerido</small>
+    	<small *ngIf="primEmail.errors?.pattern " class="text-danger"><br>Por favor escriba una direccion de correo valida</small>
+      </div>
+
+      <div *ngIf="formtype == 1 ">
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder="Edad" formControlName="edad">
+          <small *ngIf="registerForm.get('edad').errors?.required && registerForm.get('edad').touched" class="text-danger"><br>la edad es requerida</small>
+      </div>
+
+      <div *ngIf="formtype == 2 ">
+        <input type="text" id="login" class="fadeIn second" name="nit" placeholder="NIT" formControlName="nit">
+        <small *ngIf="registerForm.get('nit').errors?.required && registerForm.get('nit').touched" class="text-danger"><br>el nombre es requeridos</small>
+        <input type="text" id="login" class="fadeIn second" name="address" placeholder="Address" formControlName="address">
+        <small *ngIf="registerForm.get('address').errors?.required && registerForm.get('address').touched" class="text-danger"><br>el nombre es requeridos</small>
+      </div>
+
+      <div *ngIf="formtype == 1 ">
+        <select  formControlName="universidad" type="select" placeholder="Universidad" class="fadeIn second"  >
+          <option value="" disabled selected hidden>institucion educativa</option>
+          <option *ngFor="let food of foods" value="{{food.id}}" >{{food.valor}}
+          </option>
+        </select>
+      </div>
+
+
+
+
+      <input type="password"  class="fadeIn third" name="login" placeholder="Contraseña" formControlName="password1">
+      <small *ngIf="registerForm.get('password1').errors?.required && registerForm.get('password1').touched" class="text-danger"><br>Contraseña es requerida</small>
+      <small *ngIf="registerForm.get('password1').errors?.minlength" class="text-danger"><br>Contraseña deebe ser de almenos 8 caracteres</small>
+
+
+      <div *ngIf="formtype == 2 ">
+        <input type="password"  class="fadeIn third" name="login" placeholder="Confirmacion de contraseña" formControlName="password2">
+        <small *ngIf="registerForm.get('password2').errors?.required && registerForm.get('password2').touched" class="text-danger"><br>confirmacion de contraseña es requerida</small>
+        <small *ngIf="registerForm.get('password2').errors?.minlength" class="text-danger"><br>Contraseña deebe ser de almenos 8 caracteres</small>
+      </div>
+
+      <br>
+      <br>
+      <div *ngIf="formtype == 1 ">
+        <input type="submit" class="fadeIn fourth" value="Registrarse" (click)="registerCampusUser()" >
+      </div>
+      <div *ngIf="formtype == 2 ">
+        <input type="submit" class="fadeIn fourth" value="Registrarse" (click)="registerCompany()" >
+      </div>
+      <div *ngIf="formtype == 3 ">
+        <input type="submit" class="fadeIn fourth" value="Registrarse" (click)="registerBiciUser()" >
+      </div>
+
+
+    </form>
+
+    <!-- Remind Passowrd -->
+
+  </div>
+</div>
