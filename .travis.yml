@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "8.9"
 install:
-  - npm cache clean --force
+  - npx cypress cache clear
   - npm install
 script:
   - npm run cypress:ci
