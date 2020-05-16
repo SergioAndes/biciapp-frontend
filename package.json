@@ -15,7 +15,7 @@
     "cypress:ci": "concurrently \"npm run start\" \"wait-on http-get://localhost:4200 && npm run cy:run\" --kill-others --success first"
   },
   "engines": {
-    "node": "6.11.1",
+    "node": "10.16.3",
     "npm": "3.10.9"
   },
   "private": true,
