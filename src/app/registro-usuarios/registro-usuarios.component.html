@@ -43,7 +43,7 @@
       </div>
 
       <div *ngIf="formtype == 1 ">
-        <select  formControlName="universidad" type="select" placeholder="Universidad" class="fadeIn second"  >
+        <select  formControlName="universidad" type="select" id="universidad" placeholder="Universidad" class="fadeIn second"  >
           <option value="" disabled selected hidden>institucion educativa</option>
           <option *ngFor="let food of foods" value="{{food.id}}" >{{food.valor}}
           </option>
