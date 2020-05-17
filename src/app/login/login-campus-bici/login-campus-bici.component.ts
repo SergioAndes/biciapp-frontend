@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login-campus-bici.component.css']
 })
 export class LoginCampusBiciComponent implements OnInit {
-  private registerForm: FormGroup;
+  public registerForm: FormGroup;
 
   constructor(private authService: RegistroUsuarioService, private router: Router) { }
 
