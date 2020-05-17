@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
+    "startng": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -14,7 +15,7 @@
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && ng serve -o",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cypress:ci": "concurrently \"npm run start\" \"wait-on http-get://localhost:4200 && npm run cy:run\" --kill-others --success first"
+    "cypress:ci": "concurrently \"npm run startng\" \"wait-on http-get://localhost:4200 && npm run cy:run\" --kill-others --success first"
   },
   "engines": {
     "node": "12.16.2",
@@ -58,7 +59,7 @@
     "sweetalert2": "^9.10.12",
     "web-animations-js": "2.3.1",
     "zone.js": "0.10.2",
-     "@angular-devkit/build-angular": "0.900.5",
+    "@angular-devkit/build-angular": "0.900.5",
     "@angular/cli": "9.0.5",
     "@angular/compiler-cli": "9.0.5",
     "@angular/language-service": "9.0.5",
